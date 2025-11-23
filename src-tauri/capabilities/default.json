@@ -1,0 +1,148 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": [
+    "*"
+  ],
+  "permissions": [
+    "core:default",
+    "opener:default",
+    {
+      "identifier": "opener:allow-open-path",
+      "allow": [
+        {
+          "path": "$APPDATA/**"
+        }
+      ]
+    },
+    "core:window:allow-start-dragging",
+    "core:webview:allow-set-webview-auto-resize",
+    "core:window:allow-set-size",
+    "core:window:allow-show",
+    "core:window:allow-set-focus",
+    "core:window:allow-destroy",
+    "log:allow-log",
+    "log:default",
+    "core:webview:allow-create-webview-window",
+    "core:window:allow-set-position",
+    "core:window:allow-set-always-on-top",
+    "core:window:allow-close",
+    "screenshots:default",
+    "os:allow-locale",
+    "os:allow-hostname",
+    "os:default",
+    "dialog:default",
+    "fs:default",
+    {
+      "identifier": "fs:read-files",
+      "allow": [
+        {
+          "path": "**/*"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-app-read-recursive",
+      "allow": [
+        {
+          "path": "**/*"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-app-write-recursive",
+      "allow": [
+        {
+          "path": "**/*"
+        }
+      ]
+    },
+    {
+      "identifier": "http:default",
+      "allow": [
+        {
+          "url": "https://*"
+        },
+        {
+          "url": "http://*:*"
+        }
+      ]
+    },
+    "shell:allow-execute",
+    "shell:allow-spawn",
+    {
+      "identifier": "shell:allow-execute",
+      "allow": [
+        {
+          "name": "powershell",
+          "cmd": "powershell",
+          "args": true
+        },
+        {
+          "name": "unzip",
+          "cmd": "unzip",
+          "args": true
+        },
+        {
+          "name": "tar",
+          "cmd": "tar",
+          "args": true
+        },
+        {
+          "name": "chmod",
+          "cmd": "chmod",
+          "args": [
+            "+x",
+            {
+              "validator": ".+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identifier": "shell:allow-spawn",
+      "allow": [
+        {
+          "name": "sbv2-win",
+          "cmd": "cmd",
+          "args": [
+            "/C",
+            "sbv2_api.exe"
+          ]
+        },
+        {
+          "name": "sbv2-nix",
+          "cmd": "./sbv2_api",
+          "args": true
+        },
+        {
+          "name": "powershell",
+          "cmd": "powershell",
+          "args": true
+        },
+        {
+          "name": "unzip",
+          "cmd": "unzip",
+          "args": true
+        },
+        {
+          "name": "tar",
+          "cmd": "tar",
+          "args": true
+        },
+        {
+          "name": "chmod",
+          "cmd": "chmod",
+          "args": [
+            "+x",
+            {
+              "validator": ".+"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+import { createRouter, createWebHashHistory } from 'vue-router'
+
+// 使用懒加载优化性能
+const MainPage = () => import('../pages/main/MainPage.vue')
+const SettingsPage = () => import('../pages/settings/SettingsPage.vue')
+const ChatBubblePage = () => import('../pages/chatBubble/ChatBubblePage.vue')
+const ChatHistoryPage = () => import('../pages/chatHistory/ChatHistoryPage.vue')
+// 通知横幅页面
+const NotificationPage = () => import('../pages/notification/NotificationPage.vue')
+
+const routes = [
+  {
+    path: '/',
+    name: 'main',
+    component: MainPage
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: SettingsPage
+  },
+  {
+    path: '/chat-bubble',
+    name: 'chat-bubble',
+    component: ChatBubblePage
+  },
+  {
+    path: '/chat-history',
+    name: 'chat-history',
+    component: ChatHistoryPage
+  },
+  {
+    path: '/notification',
+    name: 'notification',
+    component: NotificationPage
+  }
+]
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes
+})
+
+export default router
